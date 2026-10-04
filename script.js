@@ -10,13 +10,16 @@ addBtn.addEventListener("click", addRow);
 
 function addRow() {
   const row = {
-    item: itemBox.value,
     quantity: quantityBox.value,
     price: priceBox.value
   };
 
+  if (itemBox.value !== "") {
+    row.item = itemBox.value; // an empty box leaves the object with no item
+  }
+
   row.line = row.quantity * row.price;
-  row.note = row.price + row.quantity; // both are text, so the quantity is joined on the end
+  row.note = row.price + row.quantity;
 
   rows.push(row);
   drawTable();
