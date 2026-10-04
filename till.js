@@ -3,10 +3,15 @@ const paidBox = document.getElementById("paid");
 const takeBtn = document.getElementById("takeBtn");
 const changeText = document.getElementById("changeText");
 const halfText = document.getElementById("halfText");
+const nullKind = document.getElementById("nullKind");
 
 takeBtn.addEventListener("click", function () {
   const bill = billBox.value;
-  const paid = paidBox.value;
+  let paid = paidBox.value;
+
+  if (paid === "") {
+    paid = null;
+  }
 
   const change = getChange(bill, paid); // the call is above the function
 
@@ -20,6 +25,12 @@ takeBtn.addEventListener("click", function () {
     halfText.textContent = "Half of the change: " + change / 2;
   } else {
     halfText.textContent = "";
+  }
+
+  if (paid === null) {
+    nullKind.textContent = "Kind of paid: " + typeof paid;
+  } else {
+    nullKind.textContent = "";
   }
 });
 
