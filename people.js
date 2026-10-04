@@ -1,4 +1,4 @@
-let people = [];
+let people = [{ name: "Qasim" }];
 
 const nameBox = document.getElementById("name");
 const hereBtn = document.getElementById("hereBtn");
@@ -32,3 +32,5 @@ function drawList() {
   listBody.innerHTML = html;
   countText.textContent = "People in the shop: " + count;
 }
+
+drawList();
